@@ -1,0 +1,64 @@
+@baseUrl = http://localhost:3000
+
+# @name createAsset
+POST {{baseUrl}}/assets
+Content-Type: application/json
+
+{
+  "name": "Amazon",
+  "symbol": "A1",
+  "price": 100,
+  "image": "AMZN.png"
+}
+
+###
+@assetIdId = {{ createAsset.response.body._id }}
+###
+
+GET {{baseUrl}}/assets
+
+###
+
+GET {{baseUrl}}/assets/A1
+
+###
+# @name createWallet
+POST {{baseUrl}}/wallets
+###
+@walletId = {{ createWallet.response.body._id }}
+
+###
+
+GET {{baseUrl}}/wallets
+
+###
+
+GET {{baseUrl}}/wallets/{{walletId}}
+
+###
+# @name createWalletAsset
+POST {{baseUrl}}/wallets/{{walletId}}/assets
+Content-Type: application/json
+
+{
+  "assetId": "{{ assetIdId }}",
+  "shares": 100
+}
+
+###
+# @name creatOrder
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "walletId": "{{ walletId }}",
+  "assetId": "{{ assetIdId }}",
+  "shares": 10,
+  "price": 100,
+  "type": "BUY"
+}
+
+###
+
+GET {{baseUrl}}/orders?walletId={{walletId}}
+

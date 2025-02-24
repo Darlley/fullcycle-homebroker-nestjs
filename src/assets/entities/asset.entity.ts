@@ -1,0 +1,27 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
+
+export type AssetDocumentType = HydratedDocument<Asset>
+
+@Schema()
+export class Asset {
+  @Prop({ default: () => crypto.randomUUID() })
+  _id: string;
+
+  @Prop({ unique: true, index: true })
+  name: string;
+  
+  @Prop({ unique: true, index: true })
+  symbol: string;
+
+  @Prop()
+  image: string;
+
+  @Prop()
+  price: string;
+
+  createdAt!: Date;
+  updatedAt!: Date;
+}
+
+export const AssetSchema = SchemaFactory.createForClass(Asset)
