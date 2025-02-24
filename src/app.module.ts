@@ -8,7 +8,7 @@ import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/nestjs-api'),
+    MongooseModule.forRoot('mongodb://root:root@localhost:27000/nest?authSource=admin&directConnection=true'),
     AssetsModule,
     WalletsModule,
     OrdersModule
