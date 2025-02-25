@@ -1,17 +1,7 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-
----
-
 # API NESTJS DO PROJETO HOME BROKER DA FULL CYCLE
 
 AULAS:
 
 1. [vídeo 1 - A grande Oportunidade e Início do projeto prático: Home Broker](https://youtu.be/Bfqdj8LnM8Q?t=6511)
 
+Servimos nossos assets em um servidor local com o comando: `npx serve -l tcp:127.0.0.1:9000 ./assets`

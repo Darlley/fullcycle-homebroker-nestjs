@@ -4,6 +4,7 @@ import mongoose, { Model } from 'mongoose';
 import { CreateWalletDto } from './dto/create-wallet.dto';
 import { WalletAsset } from './entities/wallet-asset.entity';
 import { Wallet } from './entities/wallet.entity';
+import { Asset } from 'src/assets/entities/asset.entity';
 
 @Injectable()
 export class WalletsService {
@@ -27,13 +28,14 @@ export class WalletsService {
   }
 
   findOne(id: string) {
-    //this.walletAssetSchema.findOne({ wallet: id }).populate(['wallet', 'asset'])
     return this.walletSchema.findById(id).populate([
       {
-        path: 'assets', // WalletAsset
+        path: 'assets', //walletasset
         populate: ['asset'],
       },
-    ]);
+    ]) as Promise<
+      (Wallet & { assets: (WalletAsset & { asset: Asset })[] }) | null
+    >;
   }
 
   // update(id: number, updateWalletDto: UpdateWalletDto) {

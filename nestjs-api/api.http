@@ -5,10 +5,10 @@ POST {{baseUrl}}/assets
 Content-Type: application/json
 
 {
-  "name": "Amazon",
-  "symbol": "A1",
-  "price": 100,
-  "image": "AMZN.png"
+  "name": "Google",
+  "symbol": "GOOGL",
+  "price": 181,
+  "image": "GOOGL.png"
 }
 
 ###
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 {
   "assetId": "{{ assetIdId }}",
-  "shares": 100
+  "shares": 1000
 }
 
 ###
